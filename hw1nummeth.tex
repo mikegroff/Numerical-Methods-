@@ -1,0 +1,110 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,mathtools,amsfonts}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+\title{Homework 1}
+\author{Numerical Methods\\ Michael Groff\\ 
+}
+\date{September 1, 2017}
+\maketitle
+
+\begin{problem}{4}
+ The limit e =$\lim n\to \infty (1+1/n) n$ deﬁnes the number e in calculus. Estimate e by taking the value of this expression for $n = 8,8^2,...,8^{10}$. Compare with e obtained from $e = exp(1.0)$. Interpret the results. \\
+ \text{ }\\
+ Using a for loop to evaluate this equation by replacing n with $8^k$ we obtain the following values:\\
+  \text{ }\\
+$8^1 \text{ :} 2.7183 \text{ error: } 0.1525$ \\
+$ 8^2 \text{ :}   2.7183 \text{ error: } 0.0209$\\
+$8^3 \text{ :}    2.7183\text{ error: }  0.0026$\\
+$8^4 \text{ :}    2.7183\text{ error: }    3.3175e-04$\\
+$8^5 \text{ :}    2.7183\text{ error: }  4.1477e-05$\\
+$8^6 \text{ :}    2.7183\text{ error: }    5.1847e-06$\\
+$8^7 \text{ :}    2.7183\text{ error: }  6.4809e-07$\\
+$8^8 \text{ :}    2.7183\text{ error: }   8.1011e-08$\\
+$8^9 \text{ :}    2.7183\text{ error: }   1.0126e-08$\\
+$8^{10} \text{ :}    2.7183\text{error: }    1.2658e-09$\\
+ 
+ 
+
+ 
+ 
+ From this estimation its clear that this function very closely estimates the actual value of e when very large values are used for n. for instance when $n = 8^{10}$ the error slightly more than 1 billionth.
+
+\end{problem}
+
+
+
+\begin{problem}{9}
+ Let $a_1$ be given. Write a program to compute for $1\leq n\leq 1000$ the numbers $b_n =n a_{n-1}$ $ a_n  = b_n/n.$ Print the numbers $a_{100},a_{200},...,a_{1000}$ .Do not use subscripted variables. What should $a_n$ be? Account for the deviation of fact from theory. Determine four values for $a_1$ so that the computation does deviate from theory on your computer. Hint:Consider extremely small and large numbers and print to full machine precision. \\
+ \text{ }\\
+ In each step $a_n$ value remains constant because when using substitution $a_n = a_{n-1}$ So in theory it should remain constant, however when extremely small or large values are plugged in for a the computer makes and error. for example:\\
+  \text{ }\\
+ $a_1 =$ 1.5e-1000 $a_n = 0$\\
+  $a_1 =$ 1e-1000 $a_n = 0$\\
+   $a_1 =$ 1.5e+1000 $a_n = \infty$\\
+  $a_1 =$ 1e+1000 $a_n = \infty$\\
+ 
+
+\end{problem}
+
+\begin{problem}{19}
+Consider the following pseudocode segments:\\ a.\\
+ integer i; 
+ real x, y, z\\ for i =1 : 20\\
+  x =2+1.0/8i \\
+  y =arctan(x)−arctan(2)\\
+   $z = 8^i y$\\
+    output x, y,z \\
+    end \\
+    b.\\
+     real epsi = 1\\
+      while $1 < 1+epsi$ \\
+      epsi= epsi/2 \\
+      output epsi\\
+ end\\
+      \text{ }\\
+       What is the purpose of each program? Is it achieved? Explain. Code and run each one to verify your conclusions. \\
+    \text{ }\\
+    a. The purpose of this code is to test the computer and see how small of an difference it will recognize in the input of an equation and if on or before the 20th iteration the difference will be negligible and readout as zero for $1/8^i$. The difference become zero on the 18th iteration.\\
+    b. The purpose of this code is to test and see how small of a value for espi is needed for difference between 1 and 1 +espi to be  indistinguishable to the computer because of how small espi has become. In this scenario espi attains a value of 1.1102e-16 before it becomes negligible.
+    
+
+
+\end{problem}
+
+
+\begin{problem}{30}
+By plotting: $\ln\left(x\right)$ and: $\ln\left(\frac{\left(1+x\right)}{\left(1-x\right)}\right)$, show that they both contain the point: $\ln\left(2\right)$. Are there other values that match up?\\
+\text{ }\\
+From plotting the two equations it is clear that $\ln 2$ exists in both graphs namely when x=2 for the first equation and when x = 3 for the second equation. in fact they both share all values in the range $(\ln (1), \ln (\infty) )$ non- inclusive. which is the range of the second equation;
+
+
+
+\end{problem}
+
+\end{document}
+
+\\

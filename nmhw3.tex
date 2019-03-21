@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,mathtools,amsfonts}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+\title{Numerical Methods Hw 3}
+\author{Michael Groff 
+}
+\date{}
+\maketitle
+
+\begin{problem}{3.2: 40}
+Newton’s method can be defined for the equation $f (z) = g(x, y)+ih(x, y)$, where $f (z)$ is an analytic function of the complex variable $z = x +iy$ ($x$ and $y$ real) and $g(x, y)$ and $h(x, y)$ are real functions for all $x$ and $y$. The derivative $f'(z)$ is given by $f'(z) = g_x +ih_x = h_y -ig_y$ because the Cauchy-Riemann equations $g_x = h_y$ and $h_x =− g_y$ hold. Here the partial derivatives are defined as $g_x = \frac{\partial g}{\partial x}$, $g_y = \frac{\partial g}{\partial y}$, and so on. Show that Newton’s method:
+\[ z_{n+1} = z_n - \dfrac{f (z_n)}{ f'(z_n)}\] 
+can be written in the form:
+\[ x_{n+1} = x_n - \dfrac{gh_y -hg_y}{ g_xh_y -g_yh_x} , \text{  \space \space }y_{n+1} = y_n - \dfrac{hg_x -gh_x}{ g_xh_y -g_yh_x}\]
+ Here all functions are evaluated at $z_n = x_n +iy_n$. 
+
+
+\end{problem}
+
+\begin{proof}
+\text{ }\\
+\text{ }\\
+Starting from Newtons Method and substituting  $z_n = x_n +iy_n$ and $f (z) = g(x, y)+ih(x, y)$
+\[ z_{n+1} = z_n − \dfrac{f (z_n)}{ f'(z_n)} \Rightarrow \ x_{n+1} + iy_{n+1} = x_n +iy_n-\dfrac{g+ih}{g_x+ih_x}\]
+Utilizing the fact that  $g_x = h_y$ and $h_x =− g_y$ and multiplying the numerator and the denominator by $h_y +ig_y$
+\[\dfrac{g+ih}{g_x+ih_x} = \dfrac{(g+ih)(h_y +ig_y)}{(g_x+ih_x)(h_y +ig_y)} = \dfrac{gh_y-hg_y+ihh_y+igg_y}{g_xh_y - g_yh_x} = \dfrac{gh_y-hg}{g_xh_y - g_yh_x} + i\dfrac{hg_x -gh_x}{g_xh_y - g_yh_x}\]
+Substituting yields the equation
+\[ x_{n+1} + iy_{n+1} = x_n +iy_n-\dfrac{gh_y-hg}{g_xh_y - g_yh_x} - i\dfrac{hg_x -gh_x}{g_xh_y - g_yh_x}\]
+And then by separating the real parts from the imaginary
+\[ x_{n+1} = x_n - \dfrac{gh_y -hg_y}{ g_xh_y -g_yh_x} , \text{  \space \space }y_{n+1} = y_n - \dfrac{hg_x -gh_x}{ g_xh_y -g_yh_x}\]
+
+
+
+
+
+\end{proof}
+
+\end{document}
+
+

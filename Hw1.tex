@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,mathtools,amsfonts}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+\title{Homework 1}
+\author{Numerical Methods \\Michael Groff\\ 
+}
+\date{September 9, 2017}
+\maketitle
+
+\begin{problem}{1}
+ The limit $e = \lim n\to \infty (1+1/n)n$ deﬁnes the number e in calculus. Estimate e by taking the value of this expression for $n = 8,\pow(8,2) ,\pow(8,3), $...$,\pow(8,10). Compare with e obtained from $e = exp(1.0)$. Interpret the results. 
+
+   2.718281828459046
+
+   0.152497314508698
+
+   2.718281828459046
+
+   0.020936875893947
+
+   2.718281828459046
+
+   0.002649828290054
+
+   2.718281828459046
+
+     3.317472693797896e-04
+
+   2.718281828459046
+
+     4.147652875152730e-05
+
+   2.718281828459046
+
+     5.184692999371521e-06
+
+   2.718281828459046
+
+     6.480886081128290e-07
+
+   2.718281828459046
+
+     8.101110715585946e-08
+
+   2.718281828459046
+
+     1.012638906061625e-08
+
+   2.718281828459046
+
+     1.265799021155090e-09
+\end{problem}
+
+\begin{problem}{2}
+
+Let $a_1$ be given. Write a program to compute for $1\leqn\leq1000$ the numbers $b_n = n a_{n−1} and a_n =b_n/n$. Print the numbers $a_100,a200,...,a1000.Donotusesubscriptedvariables. What should an be? Account for the deviation of fact from theory. Determine four values for a1 so that the computation does deviate from theory on your computer. Hint:Considerextremelysmallandlargenumbersandprinttofullmachineprecision. 
+\end{problem}
+
+
+\end{document}
+
+
